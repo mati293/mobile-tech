@@ -304,7 +304,7 @@ body::before{
 .trust-ico{font-size:1.05rem;line-height:1}
 
 /* ═══════════ SECTION RHYTHM ═══════════ */
-section{padding-block:clamp(44px,4.2vw,64px)}
+section{padding-block:clamp(38px,3.4vw,52px)}
 /* generous top padding so the eyebrow/title clear the fixed header (not cramped) */
 .hero{padding-block:clamp(128px,17vh,190px) 46px}
 

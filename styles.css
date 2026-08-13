@@ -225,7 +225,7 @@ body::before{
   max-width:var(--maxw);margin-inline:auto;padding:14px 24px;
   display:flex;align-items:center;justify-content:space-between;gap:20px;
 }
-.brand-logo{height:26px;width:auto}
+.brand-logo{height:32px;width:auto;display:block}
 .nav-desktop{display:flex;gap:34px}
 .nav-desktop a{
   font-size:.95rem;color:var(--ink-2);font-weight:500;position:relative;padding:4px 0;
@@ -346,15 +346,15 @@ section{padding-block:clamp(38px,3.4vw,52px)}
 }
 .sc-media{
   position:absolute;inset:0;z-index:0;
-  background-image:var(--img);background-size:cover;background-position:center;
-  opacity:.42;transition:transform .7s var(--ease),opacity .5s;
+  background-image:var(--img);background-size:cover;background-position:center 42%;
+  opacity:.72;transition:transform .7s var(--ease),opacity .5s;
   transform:scale(1.02);
 }
 .service-card::before{
   content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(13,13,13,.15) 0%,rgba(13,13,13,.55) 55%,rgba(13,13,13,.9) 100%);
 }
-.service-card:hover .sc-media{transform:scale(1.08);opacity:.55}
+.service-card:hover .sc-media{transform:scale(1.08);opacity:.9}
 .sc-body{position:relative;z-index:2;padding:26px}
 .sc-ico{
   width:52px;height:52px;border-radius:15px;display:grid;place-items:center;
@@ -438,7 +438,9 @@ section{padding-block:clamp(38px,3.4vw,52px)}
 
 /* ═══════════ DIFERENCIALES ═══════════ */
 .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.diff-card{padding:30px 26px}
+.diff-card{padding:34px 26px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.diff-card h3{margin-inline:auto}
+.diff-card p{margin-inline:auto;max-width:34ch}
 .diff-ico{
   width:46px;height:46px;border-radius:13px;margin-bottom:20px;position:relative;
   background:linear-gradient(145deg,rgba(7,217,140,.9),rgba(30,92,217,.85));
@@ -541,7 +543,7 @@ section{padding-block:clamp(38px,3.4vw,52px)}
 /* ═══════════ FOOTER ═══════════ */
 .site-footer{border-top:1px solid var(--line);padding:64px 0 32px;background:rgba(0,0,0,.28)}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:40px;padding-bottom:44px}
-.footer-logo{height:24px;margin-bottom:18px}
+.footer-logo{height:40px;width:auto;margin-bottom:18px}
 .footer-brand p{color:var(--ink-2);font-size:.95rem;max-width:40ch}
 .footer-nav,.footer-contact{display:flex;flex-direction:column;gap:10px}
 .footer-nav h4,.footer-contact h4{

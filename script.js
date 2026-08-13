@@ -19,6 +19,23 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  /* ── hero background video (skip on reduced-motion / data-saver) ── */
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const conn = navigator.connection || {};
+    if (!reduce && !conn.saveData) {
+      heroVideo.muted = true;
+      const addSrc = (type, src) => { if (!src) return; const s = document.createElement('source'); s.type = type; s.src = src; heroVideo.appendChild(s); };
+      addSrc('video/webm', heroVideo.dataset.webm);
+      addSrc('video/mp4', heroVideo.dataset.mp4);
+      heroVideo.load();
+      heroVideo.addEventListener('playing', () => heroVideo.classList.add('is-playing'), { once: true });
+      const play = heroVideo.play();
+      if (play && play.catch) play.catch(() => {}); // autoplay blocked → poster image stays
+    }
+  }
+
   /* ── mobile menu ── */
   const toggle = document.querySelector('.nav-toggle');
   const menu = document.querySelector('.mobile-menu');

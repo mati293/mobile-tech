@@ -312,7 +312,7 @@ section{padding-block:clamp(38px,3.4vw,52px)}
 .hero{padding-block:clamp(128px,17vh,190px) 46px}
 
 /* ═══════════ STATS ═══════════ */
-.stats-section{padding-top:clamp(48px,7vw,80px)}
+/* stats section now sits mid-page (between Servicios y Cotizar): use base rhythm */
 .stats-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
 }

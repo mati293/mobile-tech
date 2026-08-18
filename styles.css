@@ -225,7 +225,7 @@ body::before{
   max-width:var(--maxw);margin-inline:auto;padding:14px 24px;
   display:flex;align-items:center;justify-content:space-between;gap:20px;
 }
-.brand-logo{height:32px;width:auto;display:block}
+.brand-logo{height:40px;width:auto;display:block}
 .nav-desktop{display:flex;gap:34px}
 .nav-desktop a{
   font-size:.95rem;color:var(--ink-2);font-weight:500;position:relative;padding:4px 0;

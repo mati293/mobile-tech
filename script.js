@@ -19,20 +19,28 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ── hero background video (skip on reduced-motion / data-saver) ── */
+  /* ── hero background video ──
+     Sources autoplay natively (most reliable on mobile). JS only fades it in,
+     nudges play(), and honours reduced-motion / data-saver. */
   const heroVideo = document.querySelector('.hero-video');
   if (heroVideo) {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const conn = navigator.connection || {};
-    if (!reduce && !conn.saveData) {
-      heroVideo.muted = true;
-      const addSrc = (type, src) => { if (!src) return; const s = document.createElement('source'); s.type = type; s.src = src; heroVideo.appendChild(s); };
-      addSrc('video/webm', heroVideo.dataset.webm);
-      addSrc('video/mp4', heroVideo.dataset.mp4);
-      heroVideo.load();
+    if (reduce || conn.saveData) {
+      heroVideo.removeAttribute('autoplay');
+      heroVideo.pause();
+      heroVideo.querySelectorAll('source').forEach(s => s.remove());
+      heroVideo.removeAttribute('preload');
+      heroVideo.load(); // stop buffering; poster image stays visible
+    } else {
+      heroVideo.muted = true; // required for autoplay
+      heroVideo.setAttribute('muted', '');
       heroVideo.addEventListener('playing', () => heroVideo.classList.add('is-playing'), { once: true });
-      const play = heroVideo.play();
-      if (play && play.catch) play.catch(() => {}); // autoplay blocked → poster image stays
+      const nudge = () => { const p = heroVideo.play(); if (p && p.catch) p.catch(() => {}); };
+      nudge();
+      // some mobile browsers only allow play once enough is buffered
+      heroVideo.addEventListener('canplay', nudge, { once: true });
+      heroVideo.addEventListener('loadeddata', nudge, { once: true });
     }
   }
 

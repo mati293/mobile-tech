@@ -564,6 +564,11 @@ section{padding-block:clamp(38px,3.4vw,52px)}
   color:var(--ink-3);font-size:.85rem;
 }
 .footer-legal{max-width:52ch;font-size:.78rem;line-height:1.5}
+.footer-credit{padding-top:22px;display:flex;justify-content:center}
+.footer-credit a{display:inline-flex;align-items:center;gap:10px;opacity:.7;transition:opacity .25s}
+.footer-credit a:hover{opacity:1}
+.footer-credit span{color:var(--ink-3);font-size:.8rem;letter-spacing:.02em}
+.footer-credit img{height:19px;width:auto;display:block}
 
 /* ═══════════ FLOATING WHATSAPP ═══════════ */
 .wa-float{
@@ -609,8 +614,9 @@ section{padding-block:clamp(38px,3.4vw,52px)}
   .contact-map{aspect-ratio:auto;min-height:0;height:300px;width:100%;max-width:100%}
 
   /* keep hero content clear of the fixed header on small screens */
-  .hero{padding-block:104px 34px}
-  .trust-bar{padding-top:34px}
+  .hero{padding-block:104px 34px;justify-content:center}
+  /* trust badges: desktop only */
+  .trust-bar{display:none}
 
   /* tighter vertical rhythm on smaller screens */
   section{padding-block:clamp(40px,6.5vw,56px)}
@@ -636,10 +642,7 @@ section{padding-block:clamp(38px,3.4vw,52px)}
   .hero-ctas .btn{flex:1 1 0;min-width:0;--pad-x:12px;gap:8px;font-size:.94rem}
   .btn-txt-full{display:none}
   .btn-txt-short{display:inline}
-  /* trust badges as a compact 2×2 grid (mobile only) */
-  .trust-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:30px}
-  .trust-item{justify-content:center;gap:7px;padding:9px 8px;font-size:.79rem}
-  .trust-ico{font-size:.95rem}
+  /* trust badges stay hidden on mobile (desktop only) */
   .rescue-inner{padding:28px 22px;gap:20px}
   .rescue-inner .btn{width:100%}
   .step{padding:28px 24px}
@@ -647,8 +650,14 @@ section{padding-block:clamp(38px,3.4vw,52px)}
   .review blockquote{font-size:1.05rem}
   .diff-card,.quote-form{padding:24px 20px}
   .contact-list{margin:26px 0;gap:18px}
-  .footer-grid{grid-template-columns:1fr;gap:30px}
-  .footer-bottom{flex-direction:column;gap:12px}
+  /* centered footer on mobile (matches the centered CTA above it) */
+  .footer-grid{grid-template-columns:1fr;gap:30px;text-align:center}
+  .footer-brand{text-align:center}
+  .footer-logo,.footer-brand p{margin-inline:auto}
+  .footer-nav,.footer-contact{align-items:center}
+  .footer-social{justify-content:center}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center;align-items:center}
+  .footer-legal{margin-inline:auto}
   .btn{--pad-x:24px}
   .wa-float{width:54px;height:54px;right:16px;bottom:16px}
 }

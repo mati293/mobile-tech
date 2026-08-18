@@ -565,10 +565,10 @@ section{padding-block:clamp(38px,3.4vw,52px)}
 }
 .footer-legal{max-width:52ch;font-size:.78rem;line-height:1.5}
 .footer-credit{padding-top:22px;display:flex;justify-content:center}
-.footer-credit a{display:inline-flex;align-items:center;gap:10px;opacity:.7;transition:opacity .25s}
+.footer-credit a{display:inline-flex;align-items:center;gap:11px;opacity:.9;transition:opacity .25s}
 .footer-credit a:hover{opacity:1}
-.footer-credit span{color:var(--ink-3);font-size:.8rem;letter-spacing:.02em}
-.footer-credit img{height:19px;width:auto;display:block}
+.footer-credit span{color:var(--ink-2);font-size:.82rem;letter-spacing:.02em}
+.footer-credit img{height:26px;width:auto;display:block}
 
 /* ═══════════ FLOATING WHATSAPP ═══════════ */
 .wa-float{
